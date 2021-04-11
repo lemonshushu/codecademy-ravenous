@@ -1,7 +1,10 @@
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const Yelp = {
   search(term, location, sortBy) {
-    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, {headers: {Authorization: `Bearer ${process.env.REACT_API_KEY}`}})
+    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`, {headers: {Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`}})
     .then(response => {
       if (response.ok) {
         console.log(response);
